@@ -29,6 +29,9 @@ describe("Uniswap V2", function () {
     it("Add Liquidity", async function () {
         await factory.createPair(tokenA.address, tokenB.address);
 
+        // let creationCode = await factory.creationCodeHash();
+        // console.log("creationCode", creationCode);
+
         let initCodeHash = await factory.initCodeHash();
         console.log("initCodeHash", initCodeHash);
 
