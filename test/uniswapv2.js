@@ -42,7 +42,16 @@ describe("Uniswap V2", function () {
         // router add liquidity
         await tokenA.approve(router.address, parseUnits("1000", 18));
         await tokenB.approve(router.address, parseUnits("1000", 18));
-        await router.addLiquidity(tokenA.address, tokenB.address, parseUnits("1000", 18), parseUnits("1000", 18), parseUnits("1000", 18), parseUnits("1000", 18), owner.address, 10000000000);
+        await router.addLiquidity(
+            tokenA.address,
+            tokenB.address,
+            parseUnits("1000", 18),
+            parseUnits("1000", 18),
+            parseUnits("1000", 18),
+            parseUnits("1000", 18),
+            owner.address,
+            10000000000
+        );
 
         // LP token should greater than zero
         expect(await pair.balanceOf(owner.address)).to.gt(0);
