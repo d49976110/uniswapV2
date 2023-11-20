@@ -1,6 +1,7 @@
 const hre = require("hardhat");
 
 async function main() {
+    const WETH_ADDRESS = "0x4cF1CB5c7999681155feE5Af2a6990F300919B70";
     const [admin] = await ethers.getSigners();
     console.log("admin.address", admin.address);
 
@@ -11,9 +12,10 @@ async function main() {
     console.log("factory address", factory.address);
 
     //deploy WETH contract
-    const WETH = await ethers.getContractFactory("WETH");
-    const weth = await WETH.deploy();
-    await weth.deployed();
+    // const WETH = await ethers.getContractFactory("WETH");
+    // const weth = await WETH.deploy();
+    // await weth.deployed();
+    const weth = await ethers.getContractAt("WETH", WETH_ADDRESS);
     console.log("weth address", weth.address);
 
     // deploy router
