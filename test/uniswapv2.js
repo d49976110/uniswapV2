@@ -9,10 +9,10 @@ async function deployContracts() {
     [owner, addr1, ...addrs] = await ethers.getSigners();
     const WETHAddress = addr1.address;
     const TokenA = await ethers.getContractFactory("CustomToken");
-    tokenA = await TokenA.deploy();
+    tokenA = await TokenA.deploy("CTA");
 
     const TokenB = await ethers.getContractFactory("CustomToken");
-    tokenB = await TokenB.deploy();
+    tokenB = await TokenB.deploy("CTB");
 
     const Factory = await ethers.getContractFactory("UniswapV2Factory");
     factory = await Factory.deploy(owner.address);
